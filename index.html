@@ -24,12 +24,35 @@
                 print()
                 $('button,br').show()
             }
-            function exportToCSV() {
+
+            function saveTable() {
                 let csv = ''
                 for (let i = 0; i < 10; i++)
                     csv += `${$('th').eq(i).text()},${$('td').eq(i).text()}\r\n`
                 $(`<a href="${URL.createObjectURL(new Blob([csv]))}" download="Emuna.csv"></a>`).get(0).click()
             }
+
+            function clearTable() {
+                localStorage.data = ''
+                location.reload()
+            }
+            
+            $(window).on('input', () => {
+                const arr = []
+                $('td').each((i, e) => {
+                    arr.push($(e).text())
+                })
+                localStorage.data = JSON.stringify(arr)
+            })
+
+            $(document).ready(() => {
+                if (localStorage.data) {
+                    const arr = JSON.parse(localStorage.data)
+                    $('td').each((i, e) => {
+                        $(e).text(arr[i])
+                    })
+                }
+            })
         </script>
     </head>
     <body>
@@ -79,8 +102,9 @@
                     <td contenteditable></td>
                 </tr>
             </table>
-            <button class="btn btn-primary" onclick="printTable()"><i class="fa fa-fw fa-print"></i> הדפסה</button>
-            <button class="btn btn-primary" onclick="exportToCSV()"><i class="fa fa-fw fa-save"></i> שמירה</button>
+            <button class="btn btn-primary" onclick="printTable()"><i class="fa fa-fw fa-print"></i> הדפס</button>
+            <button class="btn btn-primary" onclick="saveTable()"><i class="fa fa-fw fa-save"></i> שמור</button>
+            <button class="btn btn-danger" onclick="clearTable()"><i class="fa fa-fw fa-close"></i> נקה</button>
             <br>
             <br>
         </div>
