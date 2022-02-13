@@ -19,6 +19,11 @@
             }
         </style>
         <script>
+            function printTable() {
+                $('button,br').hide()
+                print()
+                $('button,br').show()
+            }
             function exportToCSV() {
                 let csv = ''
                 for (let i = 0; i < 10; i++)
@@ -74,7 +79,7 @@
                     <td contenteditable></td>
                 </tr>
             </table>
-            <button class="btn btn-primary" onclick="$('button,br').hide(); print(); $('button,br').show()"><i class="fa fa-fw fa-print"></i> הדפסה</button>
+            <button class="btn btn-primary" onclick="printTable()"><i class="fa fa-fw fa-print"></i> הדפסה</button>
             <button class="btn btn-primary" onclick="exportToCSV()"><i class="fa fa-fw fa-save"></i> שמירה</button>
             <br>
             <br>
