@@ -20,9 +20,9 @@
         </style>
         <script>
             function exportToCSV() {
-                let csv = ""
+                let csv = ''
                 for (let i = 0; i < 10; i++)
-                    csv += `${$('table th').eq(i).text()},${$('table textarea').eq(i).val()}\r\n`
+                    csv += `${$('th').eq(i).text()},${$('td').eq(i).text()}\r\n`
                 $(`<a href="${URL.createObjectURL(new Blob([csv]))}" download="Emuna.csv"></a>`).get(0).click()
             }
         </script>
