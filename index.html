@@ -57,6 +57,7 @@
             $(window).on('input', () => {
                 const arr = []
                 $('td').each((i, e) => {
+                    $(e).text($(e).text())
                     arr.push($(e).text())
                 })
                 localStorage.data = JSON.stringify(arr)
