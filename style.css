@@ -1,0 +1,32 @@
+* {
+    outline: none !important;
+}
+body {
+    background: yellowgreen;
+    background: linear-gradient(45deg, yellowgreen 15%, white 60%, rgb(100, 255, 255) 100%);
+}
+h1 {
+    color: white;
+    text-shadow: 0 0 10px black;
+}
+table {
+    box-shadow: 0 0 15px;
+}
+th {
+    width: 40%;
+    background-color: lightcyan !important;
+}
+td {
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+  background-color: white !important;
+}
+*::-webkit-scrollbar
+{
+    width: 8px;
+    height: 8px;
+}
+*::-webkit-scrollbar-thumb
+{
+    background-color: darkcyan;
+}
